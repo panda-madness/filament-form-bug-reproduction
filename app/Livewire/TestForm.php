@@ -30,7 +30,9 @@ class TestForm extends Component implements HasForms
             ->schema([
                 TextInput::make('name')->required()->hidden($this->codeRequested),
                 TextInput::make('phone')->required()->hidden($this->codeRequested),
-                TextInput::make('code')->required()->visible($this->codeRequested),
+                TextInput::make('code')
+                    ->required($this->codeRequested)
+                    ->visible($this->codeRequested),
             ])
             ->statePath('data');
     }
